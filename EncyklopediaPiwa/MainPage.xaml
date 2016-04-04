@@ -5,7 +5,10 @@
     xmlns:local="using:EncyklopediaPiwa"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    DataContext="{Binding Source={StaticResource ServiceLocator}, Path=MainMenuViewModel}"
+    DataContextChanged="MainPage_OnDataContextChanged"
+    >
 
     <Grid>
 		<Grid.RowDefinitions>
@@ -26,6 +29,7 @@
 			Content="&#xE700;"
 			FontFamily="Segoe MDL2 Assets"
 			Background="Orange"
+            Click="HamburgerButton_OnClick"
 			/>
 		
 	   <SplitView
@@ -35,10 +39,25 @@
 		   VerticalAlignment="Stretch"
 		   HorizontalAlignment="Stretch"
 		   PaneBackground="MediumAquamarine"
+           Background="Red"
 		   OpenPaneLength="300"
-		   IsPaneOpen="True"
+           CompactPaneLength="50"
+           DisplayMode="CompactInline"
+		   IsPaneOpen="{Binding IsPaneOpen, Mode=OneWay}"
 		   >
-		   
+		   <SplitView.Pane>
+                <StackPanel>
+                    <Button 
+                        Command="{Binding NavigateToBeerList}"
+                        Width="300"
+                        Content="Lista piw"/>
+                </StackPanel>
+           </SplitView.Pane>
+            
+           <Frame 
+                VerticalAlignment="Stretch"
+                HorizontalAlignment="Stretch"
+                x:Name="ContentFrame"/> 
 	   </SplitView>
     </Grid>
 </Page>
