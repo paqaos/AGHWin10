@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace EncyklopediaPiwa.Interfaces.ViewModel
 {
-    public interface IBeerListViewItem
+    public interface IBeerListViewModel
     {
-        string Name
+        ObservableCollection<IBeerListViewItem> Beers
         {
             get;
         }
 
-        long BeerId
-        {
-            get;
-        }
+        void OnPageLoaded();
     }
 }
