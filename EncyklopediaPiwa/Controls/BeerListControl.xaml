@@ -11,7 +11,16 @@
     DataContext="{Binding BeerListViewModel, Source={StaticResource ServiceLocator}}" DataContextChanged="UserControl_DataContextChanged"
     
     >
+    <UserControl.Resources>
+        <DataTemplate x:Key="BeerItemTemplate">
+            <TextBlock Text="{Binding Name}"/>
+        </DataTemplate>
+    </UserControl.Resources>
     <ListView 
         Background="BlueViolet" 
-        ItemsSource="{Binding Beers}"/>
+        ItemsSource="{Binding Beers}"
+        ItemTemplate="{StaticResource BeerItemTemplate}"
+        >
+        
+    </ListView>
 </UserControl>
