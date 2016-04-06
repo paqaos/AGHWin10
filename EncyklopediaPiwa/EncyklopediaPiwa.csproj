@@ -101,7 +101,11 @@
     <Compile Include="BeerList.xaml.cs">
       <DependentUpon>BeerList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\BeerListControl.xaml.cs">
+      <DependentUpon>BeerListControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\Repository\IRepository.cs" />
+    <Compile Include="Interfaces\ViewModel\IBeerListViewItem.cs" />
     <Compile Include="Interfaces\ViewModel\IMainMenuViewModel.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -134,6 +138,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="BeerList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\BeerListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
