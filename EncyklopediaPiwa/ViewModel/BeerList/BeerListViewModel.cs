@@ -36,7 +36,19 @@ namespace EncyklopediaPiwa.ViewModel.BeerList
 
         public void OnPageLoaded()
         {
-            
+            Beers.Clear();
+
+            var beerRepository = ServiceLocator.BeerRepository;
+
+            var beers = beerRepository.GetAll();
+
+            foreach ( var beer in beers )
+            {
+                var beerItem = new BeerListViewItem();
+                beerItem.BeerId = beer.Id;
+                beerItem.Name = beer.Name;
+                Beers.Add( beerItem );
+            }
         }
     }
 }

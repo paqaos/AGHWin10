@@ -8,6 +8,7 @@ using EncyklopediaPiwa.Interfaces.ViewModel;
 using EncyklopediaPiwa.Model;
 using EncyklopediaPiwa.Repository;
 using EncyklopediaPiwa.ViewModel;
+using EncyklopediaPiwa.ViewModel.BeerList;
 
 namespace EncyklopediaPiwa
 {
@@ -17,11 +18,17 @@ namespace EncyklopediaPiwa
         {
             MainMenuViewModel = new MainMenuViewModel();
             BeerRepository = new BeerRepository();
+            BeerListViewModel = new BeerListViewModel();
         }
 
         public static IMainMenuViewModel MainMenuViewModel { get; set; }
 
         public static IRepository<Beer> BeerRepository { get; set; } 
         
+        public static IBeerListViewModel BeerListViewModel
+        {
+            get;
+            set;
+        }
     }
 }

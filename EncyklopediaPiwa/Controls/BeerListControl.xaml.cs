@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EncyklopediaPiwa.Interfaces.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,9 +20,25 @@ namespace EncyklopediaPiwa.Controls
 {
     public sealed partial class BeerListControl : UserControl
     {
+        private IBeerListViewModel _beerListViewModel; 
+
         public BeerListControl()
         {
             this.InitializeComponent();
+            Loaded += BeerListControl_Loaded;
+        }
+
+        private void BeerListControl_Loaded( object sender, RoutedEventArgs e )
+        {
+            if ( _beerListViewModel != null )
+            {
+                _beerListViewModel.OnPageLoaded();
+            }
+        }
+
+        private void UserControl_DataContextChanged( FrameworkElement sender, DataContextChangedEventArgs args )
+        {
+            _beerListViewModel = DataContext as IBeerListViewModel;
         }
     }
 }

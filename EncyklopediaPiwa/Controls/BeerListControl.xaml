@@ -7,6 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400">
-    <ListView Background="BlueViolet" />
+    d:DesignWidth="400" 
+    DataContext="{Binding BeerListViewModel, Source={StaticResource ServiceLocator}}" DataContextChanged="UserControl_DataContextChanged"
+    
+    >
+    <ListView 
+        Background="BlueViolet" 
+        ItemsSource="{Binding Beers}"/>
 </UserControl>
